@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Login</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="../pages/resources/css/bootstrap.min.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div>ADMIN</div>
+        <form method="post" action="index" name="input" >
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <td>Kelurahan</td>
+                    <td><input type="text" class="form-control" id="kelurahan" name="kelurahan"/></td>
+                </tr>
+                <tr>
+                    <td>Kecamatan</td>
+                    <td><input type="text" class="form-control" id="kecamatan" name="kecamatan"/></td>
+                </tr>
+                <tr>
+                    <td>Kota</td>
+                    <td><input type="text" class="form-control" id="kota" name="kota"/></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input type="hidden" id="UUID" name="UUID"/>
+                        <input class="btn btn-primary" type="submit" id="buttonOptional" value="save" name="save"/></td>
+                </tr>
+            </table>
+        </form>
+        <div>List Data</div>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <td>Kelurahan</td>
+                <td>Kecamatan</td>
+                <td>Kota</td>
+                <td>action</td>
+            </tr>
+            <p th:each="dataWilayah : ${data}">
+            <tr>
+                <td><p th:text="${dataWilayah.kelurahan}">Semangat</p></td>
+                <td><p th:text="${dataWilayah.kecamatan}">Semangat</p></td>
+                <td><p th:text="${dataWilayah.kota}">Semangat</p></td>
+                <td> <button type="button" th:value="${dataWilayah.id}" class="buttonEdit btn btn-primary">Edit</button> </td>
+            </tr>
+        </p>
+    </table>
+    <script src="../pages/resources/js/bootstrap.min.js"></script>
+    <script src="../pages/resources/js/jquery.min.js"></script>
+    <script src="../pages/resources/js/laman.admin.js"></script>
+</body>
+</html>

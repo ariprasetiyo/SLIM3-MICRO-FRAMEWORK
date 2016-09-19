@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Login</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="../pages/resources/css/bootstrap.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="../pages/resources/css/jquery-ui.css"/>
+    </head>
+    <body>
+        <div>Input Data Pasien</div>
+        <form method="post" action="index" name="saveDataPasien" >
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <td>Nama</td>
+                    <td><input type="text" name="nama"/></td>
+                </tr>
+                <tr>
+                    <td>Jenis Kelamin</td>
+                    <td><select name="jenisKelamin" class="form-control" style="width: 20%">
+                            <option value="0">Laki - Laki</option>
+                            <option value="1">Perempuan</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>No Tlpn</td>
+                    <td><input type="text" name="noHp"/></td>
+                </tr>
+                <tr>
+                    <td>RT/RW</td>
+                    <td><input type="text" name="rt"/><input type="text" name="rw"/></td>
+                </tr>
+                <tr>
+                    <td>Tanggal Lahir</td>
+                    <td><input type="text" name="tglLahir" class="datepicker" /></td>
+                </tr>
+                <tr>
+                    <td>Alamat</td>
+                    <td><input type="text" name="alamat" style="width: 100%"/></td>
+                </tr>
+                <tr>
+                    <td>Kelurahan</td>
+                    <td><select name="kelurahan" class="form-control" style="width: 20%">
+                            <p  th:each="x : ${dataKelurahan}">
+                            <option th:value="${x}" > <p th:text="${x}" >Semangat</p></option>
+                            </p>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input class="btn btn-primary" type="submit" name="save" value="save"/></td>
+                </tr>
+            </table>
+        </form>
+        <div>List Data Pasien</div>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <td>Id Pasien</td>
+                <td>Nama</td>
+                <td>Jenis Kelamin</td>
+                <td>No Tlpn</td>
+                <td>Rt/RW</td>
+                <td>Tanggal Lahir</td>
+                <td>Alamat</td>
+                <td>Kelurahan</td>
+                <td>Action</td>
+            </tr>
+            <p th:each="dataPasien : ${data}">
+            <tr>
+                <td><p th:text="${dataPasien.idPasien}">Semangat</p></td>
+                <td><p th:text="${dataPasien.nama}">Semangat</p></td>
+                <td><p th:text="${dataPasien.jenisKelamin}">Semangat</p></td>
+                <td><p th:text="${dataPasien.noHp}">Semangat</p></td>
+                <td><div th:text="${dataPasien.rt + '/' +  dataPasien.rw}">Semangat</div></td>
+                <td><p th:text="${dataPasien.tanggalLahir}">Semangat</p></td>
+                <td><p th:text="${dataPasien.alamat}">Semangat</p></td>
+                <td><p th:text="${dataPasien.kelurahan}">Semangat</p></td>
+                <td><a th:href="@{doPrint(id=${dataPasien.id})}" class='btn btn-primary printKartuPasien'>Print</a></td>
+            </tr>
+        </p>
+    </table>
+    <script src="../pages/resources/js/bootstrap.min.js"></script>
+    <script src="../pages/resources/js/jquery.min.js"></script>
+    <script src="../pages/resources/js/jquery-ui.min.js"></script>
+    <script src="../pages/resources/js/jquery.printPage.js"></script>
+    <script src="../pages/resources/js/laman.operator.js"></script>
+</body>
+</html>

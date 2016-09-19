@@ -1,0 +1,5 @@
+ari/test/AppTest.class
+ari/test/model/PasienInsertTest.class
+ari/test/model/KelurahanTest.class
+ari/test/model/SysUserTest.class
+ari/test/model/AllFlowTest.class
